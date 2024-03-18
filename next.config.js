@@ -12,7 +12,6 @@ const nextConfig = {
     },
     output: "export",
     reactStrictMode: true,
-    basePath: "/memory-game",
 
 }
 
