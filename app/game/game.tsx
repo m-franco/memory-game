@@ -11,8 +11,12 @@ interface MemoTest {
 
 export default function Game({memoTest,backImage}:{memoTest : MemoTest, backImage : any}) {
   const items: number[] = [];
-  const width: number = 94;
-  const height: number = 125;
+  const width: number = 563;
+  const height: number = 738;
+
+  const multiplier:number = 0.2;
+  const fixWidth: number = parseInt((563 * multiplier).toString());
+  const fixHeight: number = parseInt((738 * multiplier).toString());
 
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
@@ -41,19 +45,19 @@ export default function Game({memoTest,backImage}:{memoTest : MemoTest, backImag
   };
 
   return (
-    <div className="memo-test-container">
+    <div >
         <div className="h-[60px] w-[100%] bg-gray-600 flex justify-center items-center">
             <p>Retries: {retries}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
             <p> MatchedPairs:  {matchedPairs}</p>
           </div>
 
-      <div className="flex justify-around flex-wrap memo-test-board">
+      <div className="flex flex-wrap justify-between items-center ">
         {memoTest.images.map((image, index) => (
           <CardFlip
             key={index+1}
             item={image}
-            width={width}
-            height={height}
+            width={fixWidth}
+            height={fixHeight}
             backImage={backImage}
             onClick={() => handleCardClick(index)} 
             flippedCards={flippedCards}
@@ -62,7 +66,7 @@ export default function Game({memoTest,backImage}:{memoTest : MemoTest, backImag
         ))}
       </div>
       {matchedPairs === memoTest.images.length / 2 && (
-        <div className="game-over text-center">
+        <div className="text-center">
           <p>Congratulations! You've completed the memo test.</p>
 
         </div>

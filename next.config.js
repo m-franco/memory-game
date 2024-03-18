@@ -8,8 +8,11 @@ const nextConfig = {
         NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
     },
     env: {
-        API_URL_2: process.env.API_URL,
-    }
+        API_URL: process.env.API_URL,
+    },
+    output: "export",
+    reactStrictMode: true,
+    basePath: "/memory-game",
 
 }
 

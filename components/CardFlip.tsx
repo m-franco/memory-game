@@ -32,8 +32,13 @@ export default function CardFlip(
   }
 
   return (
-    <div className={`flex items-center justify-center w-[${width+20}px] h-[${height+20}px] cursor-pointer`}>
-      <div className={`flip-card w-[${width}px] h-[${height}px] rounded-md`} onClick={handleFlip}>
+    <div className={`flex items-center justify-center cursor-pointer`}
+      style={{"width":width+10, "height":height+10}}
+      >
+      <div 
+        className={`flip-card rounded-md`} 
+        style={{"width":width, "height":height}}
+        onClick={handleFlip}>
         <motion.div
         className="flip-card-inner w-[100%] h-[100%]"
         initial={false}
